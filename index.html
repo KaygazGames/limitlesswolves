@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Techno Wolves — Yeni Tema</title>
+  <meta name="description" content="Techno Wolves resmi sayfası — yarışma takımı, etkinlikler ve iletişim." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#081020;
+      --card:#0f1724;
+      --muted:#9aa7b8;
+      --accent:#00e0ff; /* neon cyan */
+      --accent-2:#ff4dd6; /* neon pink */
+      --glass: rgba(255,255,255,0.04);
+      --radius:12px;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,224,255,0.04), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(255,77,214,0.03), transparent),
+                  var(--bg);
+      color:#e6f0ff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .site{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .logo{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo-mark{
+      width:52px;height:52px;border-radius:10px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 20px rgba(0,0,0,0.6);
+      font-weight:800;font-size:20px;color:#021018;
+    }
+    .logo h1{margin:0;font-size:18px;letter-spacing:0.6px}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{
+      color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600;
+    }
+    nav a:hover{color:var(--accent);background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent)}
+
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:28px;border-radius:16px;backdrop-filter: blur(6px);
+      box-shadow:0 10px 40px rgba(2,8,20,0.7);
+      display:flex;gap:24px;align-items:center;
+    }
+    .hero-left{flex:1}
+    .hero h2{margin:0 0 8px 0;font-size:28px}
+    .hero p{color:var(--muted);margin:0 0 16px}
+    .hero .cta{display:inline-flex;gap:10px}
+    .btn{
+      padding:10px 14px;border-radius:10px;font-weight:700;border:0;cursor:pointer;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021018;
+      box-shadow:0 8px 24px rgba(0,0,0,0.5);
+    }
+    .btn.ghost{
+      background:transparent;color:var(--accent);border:1px solid rgba(0,224,255,0.12);
+      box-shadow:none;font-weight:600;
+    }
+
+    .hero-right{
+      width:260px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03);
+    }
+    .stats{display:flex;gap:12px;justify-content:space-between}
+    .stat{flex:1;background:var(--glass);padding:12px;border-radius:10px;text-align:center}
+    .stat small{display:block;color:var(--muted);font-size:12px}
+    .stat b{display:block;font-size:18px;margin-top:6px}
+
+    main{margin-top:22px;display:grid;grid-template-columns:1fr 340px;gap:20px}
+    @media (max-width:980px){
+      main{grid-template-columns:1fr; padding-bottom:40px}
+    }
+
+    /* Events feed */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03);
+      margin-bottom:16px;
+    }
+    .card h3{margin:0 0 8px 0}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    .events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    @media (max-width:720px){ .events-grid{grid-template-columns:1fr} }
+    .event{
+      padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.25), transparent);
+      border:1px solid rgba(255,255,255,0.02);
+    }
+    .event time{display:block;color:var(--muted);font-size:13px}
+    .event .title{font-weight:700;margin-top:6px;font-size:15px}
+
+    /* Sidebar */
+    aside .card{position:sticky;top:32px}
+    .about small{color:var(--muted)}
+    .contact form{display:flex;flex-direction:column;gap:8px}
+    .contact input, .contact textarea{
+      background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;color:inherit;
+    }
+    .contact button{margin-top:8px}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+    .footer-links{display:flex;gap:10px;justify-content:center;margin-top:8px}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--muted)
+    }
+
+    /* small neon accent underline */
+    .accent-underline{display:inline-block;position:relative}
+    .accent-underline:after{
+      content:"";position:absolute;left:0;right:0;bottom:-6px;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      opacity:0.14;border-radius:6px;transform:skewX(-8deg)
+    }
+
+    /* subtle animated background dots */
+    .bg-dots{
+      position:fixed;left:0;right:0;top:0;bottom:0;pointer-events:none;opacity:0.06;background-image:
+      radial-gradient(circle at 10% 20%, rgba(0,224,255,0.12) 0.5px, transparent 0.6px),
+      radial-gradient(circle at 50% 80%, rgba(255,77,214,0.12) 0.6px, transparent 0.7px);
+      mix-blend-mode:screen;
+      z-index:0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="site" role="main">
+    <header>
+      <a class="logo" href="#">
+        <div class="logo-mark">TW</div>
+        <div>
+          <h1>TECHNO WOLVES</h1>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">FTC · Fibonacci · FLL takımları</div>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Ana Sayfa</a>
+        <a href="#team">Takım</a>
+        <a href="#about">Hakkımızda</a>
+        <a href="#contact">İletişim</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h2 id="hero-title"><span class="accent-underline">Techno Wolves</span> - İleri görüşlü robotik takımı</h2>
+        <p>Robotik tutkusu, disiplinli takım çalışması ve hafif bir espriyle yarışıyoruz. Yeni üyeler ve gönüllüler için açığız — katılmak ister misiniz?</p>
+
+        <div class="cta">
+          <button class="btn" onclick="scrollToSection('#contact')">Bize Katıl</button>
+          <button class="btn ghost" onclick="scrollToSection('#team')">Takımı Gör</button>
+        </div>
+      </div>
+
+      <aside class="hero-right" aria-label="Hızlı bilgiler">
+        <div class="stats">
+          <div class="stat"><small>Projeler</small><b>12</b></div>
+          <div class="stat"><small>Yarışmalar</small><b>3</b></div>
+          <div class="stat"><small>Üyeler</small><b>18</b></div>
+        </div>
+
+        <div style="margin-top:14px">
+          <small style="color:var(--muted)">Son güncelleme</small>
+          <div style="font-weight:700;margin-top:6px">Eylül 2025</div>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+      <div>
+        <div class="card">
+          <h3>Gelecek Etkinlikler</h3>
+          <p>Takımın yaklaşan çalışmaları, antrenman tarihleri ve yarışma takvimi aşağıdadır.</p>
+
+          <div class="events-grid" id="events">
+            <!-- event items inserted by JS -->
+          </div>
+        </div>
+
+        <div class="card" id="team">
+          <h3>Takım</h3>
+          <p class="about"><small>Techno Wolves; FTC, Fibonacci ve FLL yarışma takımlarını kapsayan çok disiplinli bir ekip. Hem kod hem mekanik severiz — bazen solder dumanıyla kahve içiyoruz.</small></p>
+          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+            <div class="chip">FTC: Techno Wolves</div>
+            <div class="chip">Fibonacci: Techno Wolves</div>
+            <div class="chip">FLL: Limitless Wolves</div>
+          </div>
+        </div>
+
+        <div class="card" id="about">
+          <h3>Hakkımızda</h3>
+          <p>Techno Wolves, lise/üniversite düzeyinde robotik projeleri geliştiren, algoritma ve gömülü sistemlere odaklanan bir topluluktur. Amacımız bilgi paylaşımı, yarışmalarda başarı ve eğlenceli projeler üretmektir.</p>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card contact" id="contact">
+          <h3>İletişim</h3>
+          <p class="about"><small>Bizimle iletişime geçin — işbirlikleri, sponsorluk veya katılım için formu doldurun.</small></p>
+
+          <form onsubmit="event.preventDefault(); sendMessage();">
+            <input type="text" id="name" placeholder="İsim" required />
+            <input type="email" id="email" placeholder="E-posta" required />
+            <textarea id="message" rows="4" placeholder="Mesajınız..." required></textarea>
+            <button class="btn" type="submit">Gönder</button>
+          </form>
+
+          <div id="sent" style="display:none;margin-top:10px;color:var(--muted)">Mesajınız alındı — teşekkürler!</div>
+        </div>
+
+        <div class="card">
+          <h3>Hızlı Bağlantılar</h3>
+          <p><a href="#" style="color:var(--accent);text-decoration:none">GitHub</a> · <a href="#" style="color:var(--accent)">YouTube</a> · <a href="#" style="color:var(--accent)">Takvim</a></p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© Techno Wolves — Tüm hakları saklıdır.</div>
+      <div class="footer-links" style="margin-top:6px">
+        <div class="chip">FTC · Fibonacci · FLL</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Basit etkinlik verisi (istediğiniz JSON ile değiştirin)
+    const events = [
+      {date:'2025-10-12', title:'Hafta Sonu Kod Maratonu', desc:'Arduino & ROS atölyesi — yeni başlayanlar için.'},
+      {date:'2025-11-02', title:'Regionals Hazırlık Seansı', desc:'Proje testleri ve final provası.'},
+      {date:'2025-12-06', title:'Sergi: Yıl Sonu Projeleri', desc:'Topluluk sergisi ve demo günü.'},
+      {date:'2026-01-20', title:'Workshop: Görüntü İşleme', desc:'OpenCV temelleri ve uygulamalar.'}
+    ];
+
+    function renderEvents(){
+      const el = document.getElementById('events');
+      el.innerHTML = '';
+      events.forEach(e=>{
+        const d = new Date(e.date);
+        const monthNames = ['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
+        const node = document.createElement('div');
+        node.className = 'event';
+        node.innerHTML = '<time>' + (d.getDate()) + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear() + '</time><div class="title">' + e.title + '</div><div style="margin-top:6px;color:var(--muted);font-size:13px">' + e.desc + '</div>';
+        el.appendChild(node);
+      });
+    }
+    renderEvents();
+
+    function sendMessage(){
+      // Basit yerel feedback; gerçek form işlemi için backend veya formspree kullanın.
+      document.querySelector('.contact form').reset();
+      document.getElementById('sent').style.display = 'block';
+      setTimeout(()=>document.getElementById('sent').style.display='none', 4500);
+    }
+
+    function scrollToSection(sel){
+      const t = document.querySelector(sel);
+      if(!t) return;
+      t.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  </script>
+</body>
+</html>
